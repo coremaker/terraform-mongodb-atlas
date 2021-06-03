@@ -10,7 +10,7 @@ resource "mongodbatlas_project_ip_access_list" "services_whitelist" {
 
 resource "mongodbatlas_database_user" "root" {
   username = "root"
-  password = random_password.mongodb_atlas_root_user_pass.0.result
+  password = random_password.mongodb_atlas_root_user_pass.result
   project_id = mongodbatlas_project.project.id
   auth_database_name  = "admin"
 
@@ -24,7 +24,7 @@ resource "mongodbatlas_cluster" "tenant_provider" {
   count      = local.mongodb_atlas_is_tenant ? 1 : 0
 
   project_id   = mongodbatlas_project.project.id
-  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.0.result}"
+  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
   auto_scaling_disk_gb_enabled = var.mongodb_auto_scaling_disk_gb_enabled
   mongo_db_major_version       = var.mongodb_atlas_version
   //Provider Settings "block"
@@ -39,7 +39,7 @@ resource "mongodbatlas_cluster" "mongodb_atlas" {
   count      = local.mongodb_atlas_is_tenant ? 0 : 1
 
   project_id   = mongodbatlas_project.project.id
-  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.0.result}"
+  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
   auto_scaling_disk_gb_enabled = var.mongodb_auto_scaling_disk_gb_enabled
   mongo_db_major_version       = var.mongodb_atlas_version
   //Provider Settings "block"
