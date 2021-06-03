@@ -18,6 +18,7 @@ output "mongodb_atlas_mongo_uri_with_options" {
 
 output "mongodb_atlas_connection_strings" {
   value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.connection_strings : mongodbatlas_cluster.mongodb_atlas.0.connection_strings
+  description = "Set of connection strings that your applications use to connect"
   sensitive   = true
 }
 
