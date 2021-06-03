@@ -16,13 +16,8 @@ output "mongodb_atlas_mongo_uri_with_options" {
   sensitive   = true
 }
 
-output "mongodb_atlas_connection_strings_standard" {
-  value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.connection_strings.standard : mongodbatlas_cluster.mongodb_atlas.0.connection_strings.standard
-  sensitive   = true
-}
-
-output "mongodb_atlas_connection_strings_standard_srv" {
-  value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.connection_strings.standard_srv : mongodbatlas_cluster.mongodb_atlas.0.connection_strings.standard_srv
+output "mongodb_atlas_connection_strings" {
+  value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.connection_strings : mongodbatlas_cluster.mongodb_atlas.0.connection_strings
   sensitive   = true
 }
 
