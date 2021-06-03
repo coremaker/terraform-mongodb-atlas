@@ -15,8 +15,10 @@ variable "mongodb_atlas_region" {
     default = "WESTERN_EUROPE"
 }
 
+variable "mongodb_atlas_project_name" {
+}
+
 variable "mongodb_atlas_org_id" {
-    default = ""
 }
 
 variable "mongodb_ip_whitelist" {

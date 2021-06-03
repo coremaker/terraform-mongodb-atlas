@@ -51,6 +51,6 @@ resource "mongodbatlas_cluster" "mongodb_atlas" {
 }
 
 resource "mongodbatlas_project" "project" {
-  name   = var.environment_name
+  name   = var.mongodb_atlas_project_name
   org_id = var.mongodb_atlas_org_id
 }
