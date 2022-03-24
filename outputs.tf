@@ -4,6 +4,10 @@ output "mongodb_atlas_root_password" {
   sensitive   = true
 }
 
+output "mongodb_atlas_project_id" {
+  value = mongodbatlas_project.project.id
+}
+
 output "mongodb_atlas_mongo_uri" {
   value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.mongo_uri : mongodbatlas_cluster.mongodb_atlas.0.mongo_uri
   description = "Base connection string for the cluster"
@@ -24,4 +28,8 @@ output "mongodb_atlas_connection_strings" {
 
 output "mongodb_atlas_cluster_id" {
   value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.cluster_id : mongodbatlas_cluster.mongodb_atlas.0.cluster_id
+}
+
+output "mongodb_atlas_cluster_name" {
+  value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.name : mongodbatlas_cluster.mongodb_atlas.0.name
 }
