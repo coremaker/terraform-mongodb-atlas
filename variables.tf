@@ -1,9 +1,11 @@
 # Required
 
 variable "mongodb_atlas_project_name" {
+    description = "The name of the project you want to create."
 }
 
 variable "mongodb_atlas_org_id" {
+    description = "The ID of the organization you want to create the project within."
 }
 
 # Defaults
@@ -18,28 +20,34 @@ variable "mongodb_atlas_instance_size_name" {
 variable "mongodb_atlas_version" {
     type = string
     default = "4.4"
+    description = "Version of the cluster to deploy."
 }
 
 variable "mongodb_atlas_disk_size" {
     type = number
     default = 2
+    description = "Capacity, in gigabytes, of the host’s root volume"
 }
 
 variable "mongodb_atlas_region" {
     type = string
     default = "WESTERN_EUROPE"
+    description = "Physical location of your MongoDB cluster"
 }
 
 variable "mongodb_ip_whitelist" {
     default = "0.0.0.0/0"
+    description = "Single IP address to be added to the access list. Mutually exclusive with awsSecurityGroup and cidrBlock"
 }
 
 variable "mongodb_provider_backup_enabled" {
     type = bool
     default = true
+    description = "Flag indicating if the cluster uses Cloud Backup for backups."
 }
 
 variable "mongodb_auto_scaling_disk_gb_enabled" {
     type = bool
     default = false
+    description = "Specifies whether disk auto-scaling is enabled."
 }
