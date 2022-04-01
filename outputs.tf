@@ -6,6 +6,7 @@ output "mongodb_atlas_root_password" {
 
 output "mongodb_atlas_project_id" {
   value = mongodbatlas_project.project.id
+  description = "Returns the project id."
 }
 
 output "mongodb_atlas_mongo_uri" {
@@ -28,8 +29,10 @@ output "mongodb_atlas_connection_strings" {
 
 output "mongodb_atlas_cluster_id" {
   value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.cluster_id : mongodbatlas_cluster.mongodb_atlas.0.cluster_id
+  description = "Returns the cluster id."
 }
 
 output "mongodb_atlas_cluster_name" {
   value = local.mongodb_atlas_is_tenant ? mongodbatlas_cluster.tenant_provider.0.name : mongodbatlas_cluster.mongodb_atlas.0.name
+  description = "Returns the cluster name."
 }
