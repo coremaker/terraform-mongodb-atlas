@@ -51,3 +51,16 @@ variable "mongodb_auto_scaling_disk_gb_enabled" {
     default = false
     description = "Specifies whether disk auto-scaling is enabled."
 }
+
+variable "mongodbatlas_access" {
+  type = list(object({
+    name  = string
+    roles = set(string)
+  }))
+  default = [
+    {
+      name  = "user1@email1.com"
+      roles = ["GROUP_READ_ONLY", "GROUP_DATA_ACCESS_READ_ONLY"]
+    }
+  ]
+}
