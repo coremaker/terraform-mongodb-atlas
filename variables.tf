@@ -59,8 +59,8 @@ variable "mongodbatlas_access" {
   }))
   default = [
     {
-      name  = "user1@email1.com"
-      roles = ["GROUP_READ_ONLY", "GROUP_DATA_ACCESS_READ_ONLY"]
+      name  = ""
+      roles = []
     }
   ]
 }
