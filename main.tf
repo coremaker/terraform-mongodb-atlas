@@ -9,22 +9,22 @@ resource "mongodbatlas_project_ip_access_list" "services_whitelist" {
 }
 
 resource "mongodbatlas_database_user" "root" {
-  username = "root"
-  password = random_password.mongodb_atlas_root_user_pass.result
-  project_id = mongodbatlas_project.project.id
-  auth_database_name  = "admin"
+  username           = "root"
+  password           = random_password.mongodb_atlas_root_user_pass.result
+  project_id         = mongodbatlas_project.project.id
+  auth_database_name = "admin"
 
   roles {
-    role_name = "atlasAdmin"
+    role_name     = "atlasAdmin"
     database_name = "admin"
   }
 }
 
 resource "mongodbatlas_cluster" "tenant_provider" {
-  count      = local.mongodb_atlas_is_tenant ? 1 : 0
+  count = local.mongodb_atlas_is_tenant ? 1 : 0
 
-  project_id   = mongodbatlas_project.project.id
-  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
+  project_id                   = mongodbatlas_project.project.id
+  name                         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
   auto_scaling_disk_gb_enabled = var.mongodb_auto_scaling_disk_gb_enabled
   mongo_db_major_version       = var.mongodb_atlas_version
   //Provider Settings "block"
@@ -36,14 +36,14 @@ resource "mongodbatlas_cluster" "tenant_provider" {
 }
 
 resource "mongodbatlas_cluster" "mongodb_atlas" {
-  count      = local.mongodb_atlas_is_tenant ? 0 : 1
+  count = local.mongodb_atlas_is_tenant ? 0 : 1
 
-  project_id   = mongodbatlas_project.project.id
-  name         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
+  project_id                   = mongodbatlas_project.project.id
+  name                         = "mongodb-${random_string.mongodb_atlas_cluster_random_name.result}"
   auto_scaling_disk_gb_enabled = var.mongodb_auto_scaling_disk_gb_enabled
   mongo_db_major_version       = var.mongodb_atlas_version
   //Provider Settings "block"
-  cloud_backup = var.mongodb_provider_backup_enabled
+  cloud_backup                = var.mongodb_provider_backup_enabled
   provider_name               = "GCP"
   provider_instance_size_name = var.mongodb_atlas_instance_size_name
   disk_size_gb                = var.mongodb_atlas_disk_size
