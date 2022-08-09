@@ -5,8 +5,13 @@
 *.ipr
 *.ids
 *.orig
-*.json
 
-.terraform
-.local
+# Visual Code
 .DS_Store
+
+# Others
+*.json
+local
+.local
+.terraform
+.terraform.lock.hcl
