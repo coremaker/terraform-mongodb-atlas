@@ -60,10 +60,5 @@ variable "mongodbatlas_access" {
     name  = string
     roles = set(string)
   }))
-  default = [
-    {
-      name  = ""
-      roles = []
-    }
-  ]
+  default = []
 }
