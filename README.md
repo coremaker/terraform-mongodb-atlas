@@ -35,7 +35,7 @@ resource "kubernetes_secret" "mongodb_atlas_root_user_secret" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_mongodbatlas"></a> [mongodbatlas](#requirement\_mongodbatlas) | 1.3.0 |
+| <a name="requirement_mongodbatlas"></a> [mongodbatlas](#requirement\_mongodbatlas) | 2.1.0 |
 
 ## Providers
 
@@ -52,12 +52,12 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [mongodbatlas_cluster.mongodb_atlas](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/cluster) | resource |
-| [mongodbatlas_cluster.tenant_provider](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/cluster) | resource |
-| [mongodbatlas_database_user.root](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/database_user) | resource |
-| [mongodbatlas_project.project](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/project) | resource |
-| [mongodbatlas_project_invitation.each](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/project_invitation) | resource |
-| [mongodbatlas_project_ip_access_list.services_whitelist](https://registry.terraform.io/providers/mongodb/mongodbatlas/1.3.0/docs/resources/project_ip_access_list) | resource |
+| [mongodbatlas_cluster.mongodb_atlas](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/cluster) | resource |
+| [mongodbatlas_cluster.tenant_provider](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/cluster) | resource |
+| [mongodbatlas_database_user.root](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/database_user) | resource |
+| [mongodbatlas_project.project](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/project) | resource |
+| [mongodbatlas_project_invitation.each](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/project_invitation) | resource |
+| [mongodbatlas_project_ip_access_list.services_whitelist](https://registry.terraform.io/providers/mongodb/mongodbatlas/2.1.0/docs/resources/project_ip_access_list) | resource |
 | [random_password.mongodb_atlas_root_user_pass](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
 | [random_string.mongodb_atlas_cluster_random_name](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
 
@@ -74,7 +74,7 @@ No modules.
 | <a name="input_mongodb_auto_scaling_disk_gb_enabled"></a> [mongodb\_auto\_scaling\_disk\_gb\_enabled](#input\_mongodb\_auto\_scaling\_disk\_gb\_enabled) | Specifies whether disk auto-scaling is enabled. | `bool` | `false` | no |
 | <a name="input_mongodb_ip_whitelist"></a> [mongodb\_ip\_whitelist](#input\_mongodb\_ip\_whitelist) | Single IP address to be added to the access list. Mutually exclusive with awsSecurityGroup and cidrBlock | `string` | `"0.0.0.0/0"` | no |
 | <a name="input_mongodb_provider_backup_enabled"></a> [mongodb\_provider\_backup\_enabled](#input\_mongodb\_provider\_backup\_enabled) | Flag indicating if the cluster uses Cloud Backup for backups. | `bool` | `true` | no |
-| <a name="input_mongodbatlas_access"></a> [mongodbatlas\_access](#input\_mongodbatlas\_access) | n/a | <pre>list(object({<br>    name  = string<br>    roles = set(string)<br>  }))</pre> | <pre>[<br>  {<br>    "name": "",<br>    "roles": []<br>  }<br>]</pre> | no |
+| <a name="input_mongodbatlas_access"></a> [mongodbatlas\_access](#input\_mongodbatlas\_access) | n/a | <pre>list(object({<br>    name  = string<br>    roles = set(string)<br>  }))</pre> | `[]` | no |
 
 ## Outputs
 
